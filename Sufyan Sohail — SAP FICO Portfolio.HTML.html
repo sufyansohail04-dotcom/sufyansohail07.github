@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sufyan Sohail — SAP FICO Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#12283F;
+    --teal:#1B7A72;
+    --ink:#1E2833;
+    --sub:#5C6B7A;
+    --paper:#F8F9F7;
+    --card:#FFFFFF;
+    --tile:#EEF4F3;
+    --line:#DCE5E3;
+    --focus:#1B7A72;
+  }
+  :root:not([data-theme="light"]){ }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --navy:#EAF1F0; --teal:#4FCDBF; --ink:#E7ECEE; --sub:#A9B6BE;
+      --paper:#0E1618; --card:#141F22; --tile:#16211F; --line:#25332F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --navy:#EAF1F0; --teal:#4FCDBF; --ink:#E7ECEE; --sub:#A9B6BE;
+    --paper:#0E1618; --card:#141F22; --tile:#16211F; --line:#25332F;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+  html,body{height:100%;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'IBM Plex Sans',-apple-system,Segoe UI,sans-serif;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--teal); color:#fff;}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:3px;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    padding:72px 0 40px;
+    background-image:repeating-linear-gradient(
+      to bottom, transparent 0, transparent 31px, var(--line) 31px, var(--line) 32px
+    );
+    background-size:100% 32px;
+    background-position:top env(safe-area-inset-top,0px) left 0;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, var(--paper) 0%, var(--paper) 55%, transparent 100%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;}
+  .eyebrow-line{
+    display:flex; align-items:center; gap:10px; margin-bottom:20px;
+  }
+  .eyebrow-line .dot{width:7px; height:7px; border-radius:50%; background:var(--teal); flex:none;}
+  .eyebrow-line span{font-size:13px; color:var(--sub); letter-spacing:.2px;}
+  h1{
+    font-size:clamp(34px,6vw,50px); line-height:1.05; margin:0 0 10px;
+    color:var(--navy); font-weight:700; letter-spacing:-0.5px;
+  }
+  .role{
+    font-size:17px; color:var(--teal); font-weight:600; margin:0 0 22px;
+  }
+  .pitch{
+    font-size:16px; line-height:1.65; color:var(--ink); max-width:56ch; margin:0 0 28px;
+  }
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:14px 22px; font-size:14px; color:var(--sub);
+  }
+  .contact-row a{ text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:1px; }
+  .contact-row a:hover{ border-color:var(--teal); color:var(--teal); }
+  @media (max-width: 480px){
+    .contact-row{ flex-direction:column; gap:8px; }
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:10px;
+    overflow:hidden; margin-top:36px;
+  }
+  .stat{ background:var(--card); padding:18px 16px; }
+  .stat b{ display:block; font-size:22px; color:var(--navy); font-weight:700; }
+  .stat span{ display:block; font-size:12.5px; color:var(--sub); margin-top:3px; line-height:1.4; }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding:52px 0; border-top:1px solid var(--line); }
+  section:first-of-type{ border-top:none; }
+  .kicker{
+    font-size:12.5px; color:var(--teal); font-weight:600; margin:0 0 6px;
+  }
+  h2{
+    font-size:23px; color:var(--navy); font-weight:700; margin:0 0 22px; letter-spacing:-0.2px;
+  }
+
+  p.lede{ font-size:15.5px; line-height:1.7; color:var(--ink); max-width:62ch; }
+
+  /* competency tiles */
+  .tiles{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media(max-width:560px){ .tiles{grid-template-columns:1fr;} }
+  .tile{
+    background:var(--tile); border:1px solid var(--line); border-radius:10px;
+    padding:18px 18px 16px;
+  }
+  .tile h3{ margin:0 0 8px; font-size:15px; color:var(--navy); font-weight:600; }
+  .tile .codes{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--teal);
+    display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;
+  }
+  .tile .codes span{ background:var(--card); border:1px solid var(--line); border-radius:5px; padding:2px 7px; }
+  .tile p{ margin:0; font-size:13.5px; color:var(--sub); line-height:1.55; }
+
+  /* experience */
+  .role-item{ position:relative; padding-left:22px; margin-bottom:26px; }
+  .role-item:last-child{ margin-bottom:0; }
+  .role-item::before{
+    content:""; position:absolute; left:0; top:6px; width:8px; height:8px;
+    border-radius:50%; background:var(--teal);
+  }
+  .role-item::after{
+    content:""; position:absolute; left:3px; top:16px; bottom:-26px; width:1px; background:var(--line);
+  }
+  .role-item:last-child::after{ display:none; }
+  .role-item h3{ margin:0; font-size:16px; color:var(--navy); font-weight:600; }
+  .role-item .org{ font-size:13px; color:var(--teal); margin:2px 0 8px; }
+  .role-item .org .dates{ color:var(--sub); }
+  .role-item p{ margin:0; font-size:14px; line-height:1.65; color:var(--ink); max-width:58ch; }
+
+  /* coursework */
+  .course-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px 24px; }
+  @media(max-width:560px){ .course-grid{grid-template-columns:1fr;} }
+  .course{ display:flex; gap:10px; align-items:flex-start; padding:9px 0; border-bottom:1px solid var(--line); }
+  .course svg{ flex:none; margin-top:3px; }
+  .course span{ font-size:14px; line-height:1.5; color:var(--ink); }
+
+  /* education */
+  .edu-item{ margin-bottom:16px; }
+  .edu-item:last-child{ margin-bottom:0; }
+  .edu-item h3{ margin:0; font-size:15px; color:var(--navy); font-weight:600; }
+  .edu-item .sub{ font-size:13px; color:var(--sub); margin-top:2px; }
+
+  /* footer / contact */
+  footer{
+    padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));
+    border-top:1px solid var(--line);
+  }
+  footer h2{ margin-bottom:12px; }
+  footer p.lede{ margin-bottom:26px; }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:12px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 20px; border-radius:8px; font-size:14px; font-weight:600;
+    text-decoration:none; border:1px solid var(--line);
+  }
+  .btn.primary{ background:var(--navy); color:#fff; border-color:var(--navy); }
+  .btn.ghost{ color:var(--navy); }
+  .btn.ghost:hover{ border-color:var(--teal); color:var(--teal); }
+  .foot-meta{ margin-top:38px; font-size:12.5px; color:var(--sub); }
+
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow-line"><span class="dot"></span><span>Karachi, Pakistan · Open to remote roles</span></div>
+    <h1>Sufyan Sohail</h1>
+    <p class="role">Junior SAP S/4HANA FICO Consultant</p>
+    <p class="pitch">I configure SAP financial and controlling processes — General Ledger through asset accounting and cost-center reporting — with a Chartered Accountancy foundation underneath the system knowledge.</p>
+    <div class="contact-row">
+      <a href="mailto:sufyansohail04@gmail.com">sufyansohail04@gmail.com</a>
+      <a href="tel:+923313714575">+92 331-3714575</a>
+      <a href="https://linkedin.com/in/sufyansohail04" target="_blank" rel="noopener">linkedin.com/in/sufyansohail04</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>9</b><span>SAP Learning Hub courses completed</span></div>
+      <div class="stat"><b>R2R · P2P · O2C</b><span>Core process cycles covered</span></div>
+      <div class="stat"><b>CA</b><span>PRC Level, in progress</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="profile">
+    <p class="kicker">Profile</p>
+    <h2>Accounting fundamentals, applied inside SAP</h2>
+    <p class="lede">Most junior SAP profiles have configuration training or accounting training — rarely both. I came to SAP through a Chartered Accountancy path, so the debit/credit logic behind a GL posting or an asset depreciation run isn't abstract to me; I learned it by hand before I learned it in SPRO. I'm currently applying that combination in a live costing role while building toward remote support and functional consulting work.</p>
+  </section>
+
+  <section id="competencies">
+    <p class="kicker">Core Competencies</p>
+    <h2>What I can configure and support</h2>
+    <div class="tiles">
+      <div class="tile">
+        <h3>Financial Accounting</h3>
+        <div class="codes"><span>FI-GL</span><span>FI-AP</span><span>FI-AR</span><span>FI-AA</span><span>ACDOCA</span></div>
+        <p>General ledger, payables, receivables, asset accounting, financial closing, document splitting, posting period variants.</p>
+      </div>
+      <div class="tile">
+        <h3>Controlling</h3>
+        <div class="codes"><span>CO-CCA</span><span>CO-OPA</span><span>EC-PCA</span><span>CO-PC</span></div>
+        <p>Cost center accounting, internal orders, profit center accounting, and product cost planning fundamentals.</p>
+      </div>
+      <div class="tile">
+        <h3>Methodology &amp; Architecture</h3>
+        <div class="codes"><span>RISE</span><span>S/4HANA&nbsp;PCE</span><span>Fiori</span></div>
+        <p>RISE with SAP methodology, S/4HANA Cloud Private Edition deployment concepts, Fiori navigation and UX.</p>
+      </div>
+      <div class="tile">
+        <h3>Systems &amp; Tools</h3>
+        <div class="codes"><span>SPRO</span><span>Launchpad</span><span>Universal&nbsp;ID</span></div>
+        <p>Backend customizing in SPRO, Fiori Launchpad configuration, SAP Universal ID administration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="kicker">Experience</p>
+    <h2>Where the accounting logic gets tested</h2>
+
+    <div class="role-item">
+      <h3>Operations &amp; Costing Assistant</h3>
+      <p class="org">Aziz Engineering, Karachi <span class="dates">— 2024 to present</span></p>
+      <p>Track daily operational expenditure, vendor billing, and job-order production costing for precision mold manufacturing. Analyze raw material cost, machine time, and overhead allocation to evaluate job margins — the same logic that sits behind SAP CO cost-center and product-costing configuration.</p>
+    </div>
+
+    <div class="role-item">
+      <h3>Academic Tutor — Mathematics &amp; Accounting</h3>
+      <p class="org">Self-employed, Karachi <span class="dates">— 2022 to 2024</span></p>
+      <p>Taught accounting principles and debit/credit mechanics alongside secondary mathematics for four years, building the financial-logic foundation now applied to FI configuration.</p>
+    </div>
+  </section>
+
+  <section id="project">
+    <p class="kicker">Featured Project</p>
+    <h2>SS07 implementation blueprint</h2>
+    <p class="lede">A full SAP S/4HANA FICO configuration build in a private-cloud sandbox — company code setup, G/L and sub-ledger integration, controlling area and cost centers, and an end-to-end procure-to-pay test validated against the financial statement output.</p>
+    <p style="margin-top:16px;"><a href="https://drive.google.com/file/d/1hpitX0VsPtG4TW8riGDsQ-6qRn2gFKOO/view?usp=drive_link" target="_blank" rel="noopener" style="font-weight:600; border-bottom:1px solid var(--teal); padding-bottom:2px; text-decoration:none;">View the full blueprint &rarr;</a></p>
+  </section>
+
+  <section id="learning">
+    <p class="kicker">SAP Learning Hub</p>
+    <h2>Coursework completed</h2>
+    <div class="course-grid">
+      <div class="course"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="none" stroke="var(--teal)" stroke-width="1.4"/><path d="M4 7l2 2 4-4.5" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Outlining Processes in Record to Report</span></div>
+      <div class="course"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="none" stroke="var(--teal)" stroke-width="1.4"/><path d="M4 7l2 2 4-4.5" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cost Center and Internal Order Accounting in SAP S/4HANA</span></div>
+      <div class="course"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="none" stroke="var(--teal)" stroke-width="1.4"/><path d="M4 7l2 2 4-4.5" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Customizing Core Settings in Financial Accounting</span></div>
+      <div class="course"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="none" stroke="var(--teal)" stroke-width="1.4"/><path d="M4 7l2 2 4-4.5" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Learning the Basics of SAP Fiori</span></div>
+      <div class="course"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="none" stroke="var(--teal)" stroke-width="1.4"/><path d="M4 7l2 2 4-4.5" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Configuring Additional Settings in Financial Accounting</span></div>
+      <div class="course"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="none" stroke="var(--teal)" stroke-width="1.4"/><path d="M4 7l2 2 4-4.5" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Implementing SAP S/4HANA Cloud Private Edition</span></div>
+      <div class="course"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="none" stroke="var(--teal)" stroke-width="1.4"/><path d="M4 7l2 2 4-4.5" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Configuring Asset Accounting in SAP S/4HANA</span></div>
+      <div class="course"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="none" stroke="var(--teal)" stroke-width="1.4"/><path d="M4 7l2 2 4-4.5" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Introducing RISE with SAP Methodology</span></div>
+      <div class="course"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="none" stroke="var(--teal)" stroke-width="1.4"/><path d="M4 7l2 2 4-4.5" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Configuring the Financial Closing in SAP S/4HANA</span></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <p class="kicker">Education</p>
+    <h2>Credentials</h2>
+    <div class="edu-item">
+      <h3>Chartered Accountancy — PRC Level</h3>
+      <p class="sub">Tabani's School of Accountancy, Karachi</p>
+    </div>
+    <div class="edu-item">
+      <h3>Intermediate (HSC)</h3>
+      <p class="sub">Govt. Delhi College, Karachi — 2023 to 2025</p>
+    </div>
+    <div class="edu-item">
+      <h3>Matriculation (SSC)</h3>
+      <p class="sub">Metropolitan Academy, Karachi — 2021 to 2023</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="kicker">Get in touch</p>
+    <h2>Looking for a remote SAP FICO consultant?</h2>
+    <p class="lede">I'm actively applying for remote L1/L2 SAP Support Analyst and Junior Functional Consultant roles. Happy to walk through any of the configuration work above.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:sufyansohail04@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://linkedin.com/in/sufyansohail04" target="_blank" rel="noopener">View LinkedIn</a>
+    </div>
+    <p class="foot-meta">Sufyan Sohail — Karachi, Pakistan</p>
+  </div>
+</footer>
+
+</body>
+</html>
